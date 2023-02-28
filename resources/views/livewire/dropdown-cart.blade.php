@@ -18,13 +18,19 @@
                 </div>
             </x-slot>
             <x-slot name="content">
-                <div class="py-6 px-6">
-                    <p class="tex-center text-gray-700">
-                        No tiene agregado ningún item en el carrito
-                    </p>
-                </div>
+                <ul>
+                    @forelse (Cart::content() as $item)
+
+                    @empty
+                        <li class="py-6 px-6">
+                            <p class="tex-center text-gray-700">
+                                No tiene agregado ningún item en el carrito
+                            </p>
+                        </li>
+                    @endforelse
+                </ul>
+
             </x-slot>
         </x-dropdown>
     </div>
 </div>
-

@@ -43,7 +43,7 @@
         <div class="flex-1">
             <x-button-new
              x-bind:disabled="!$wire.quantity" 
-             class="w-full">
+             class="w-full disabled:opacity-25">
                 Agregar al carrito de Compra
             </x-button-new>
         </div>

@@ -23,7 +23,11 @@
             </x-secondary-button>
         </div>
         <div class="flex-1">
-            <x-button-new class="w-full">
+            <x-button-new class="w-full disabled:opacity-25"
+            wire:click="addItem"
+            wire:loading.attr="disabled" 
+            wire:target="addItem,increment,decrement"
+            >
                 Agregar al carrito de Compra
             </x-button-new>
         </div>
