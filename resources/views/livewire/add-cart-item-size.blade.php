@@ -42,7 +42,10 @@
         </div>
         <div class="flex-1">
             <x-button-new
-             x-bind:disabled="!$wire.quantity" 
+             x-bind:disabled="!$wire.quantity"
+             wire:click="addItem"
+             wire:loading.attr="disabled" 
+             wire:target="addItem"  
              class="w-full disabled:opacity-25">
                 Agregar al carrito de Compra
             </x-button-new>

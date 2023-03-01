@@ -10,12 +10,15 @@ class AddCartItem extends Component
 {
     public $product, $quantity;
     public $qty = 1;
-    public $options = [];
+    public $options = [
+        "size_id"=>null,
+        "color_id"=>null
+    ];
 
     public function mount()
     {
 
-        $this->quantity = $this->product->quantity;
+        $this->quantity = qty_available($this->product->id);
         $this->options['image'] = $this->product->images->first()->url;
     }
     //añadir al carrito
@@ -29,6 +32,9 @@ class AddCartItem extends Component
             'weight' => 550,
             'options' => $this->options
         ]);
+        $this->quantity = qty_available($this->product->id);
+        $this->reset('qty');
+        $this->emitTo('dropdown-cart','render');
     }
     public function decrement()
     {
