@@ -52,7 +52,7 @@
                     <div class="py-2 px-3">
                         <p class="text-lg text-gray-700 mt-2"><span class="font-bold">Total:</span> Bs
                             {{ Cart::subtotal() }}</p>
-                        <x-button-enlace color='orange' class="w-full">Ir al carrito de compra</x-button-enlace>
+                        <x-button-enlace href="{{route('shopping-cart')}}" color='orange' class="w-full">Ir al carrito de compra</x-button-enlace>
                     </div>
                 @endif
             </x-slot>
