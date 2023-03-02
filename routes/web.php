@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', WelcomeController::class);
 Route::get('categories/{category}',[CategoryController::class,'show'])->name('categories.show');
 Route::get('products/{product}',[ProductController::class,'show'])->name('product.show');
+Route::get('products/{id}',[ProductController::class,'show2'])->name('product.show2');
+
 Route::get('search',SearchController::class)->name('search');
 Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
 

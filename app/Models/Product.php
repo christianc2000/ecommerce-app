@@ -70,4 +70,5 @@ class Product extends Model
     {
         return 'slug';
     }
+
 }
