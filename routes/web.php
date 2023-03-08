@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\ShoppingCart;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -28,17 +29,4 @@ Route::get('products/{id}',[ProductController::class,'show2'])->name('product.sh
 Route::get('search',SearchController::class)->name('search');
 Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
-//prueba limpiando carrito
-Route::get('prueba',function(){
-   Cart::destroy();
-});
+Route::get('orders/create',CreateOrder::class)->middleware('auth')->name('orders.create');
